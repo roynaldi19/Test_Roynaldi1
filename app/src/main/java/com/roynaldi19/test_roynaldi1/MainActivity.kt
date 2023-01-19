@@ -19,8 +19,6 @@ import com.roynaldi19.test_roynaldi1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MyActivity"
-
     private lateinit var binding: ActivityMainBinding
     var IMAGE_URI: Uri? = null
     var bitmap: Bitmap? = null
@@ -80,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         val clip = ClipData.newPlainText("copied Text", resultText)
         clipBoard.setPrimaryClip(clip)
         val intent = Intent(this@MainActivity, EditableActivity::class.java)
-        Log.i(TAG, "hasilClip $resultText")
         intent.putExtra(EditableActivity.EXTRA_TEXT, resultText)
         startActivity(intent)
     }

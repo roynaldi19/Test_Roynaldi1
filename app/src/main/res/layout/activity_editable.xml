@@ -7,7 +7,7 @@
     tools:context=".EditableActivity">
 
 
-    <TextView
+    <EditText
         android:id="@+id/edt_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

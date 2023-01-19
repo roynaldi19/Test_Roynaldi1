@@ -2,10 +2,13 @@ package com.roynaldi19.test_roynaldi1
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.roynaldi19.test_roynaldi1.databinding.ActivityEditableBinding
 
 class EditableActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityEditableBinding
     private val TAG = "EditableActivity"
 
     companion object {
@@ -14,16 +17,13 @@ class EditableActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editable)
-
-        val textEditable: TextView = findViewById(R.id.edt_result)
+        binding = ActivityEditableBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val textReceived = intent.getStringExtra(EXTRA_TEXT)
-        Log.i(TAG, "hasilCliponEditable $textReceived")
+        Log.i(TAG, "edtResult $textReceived")
 
-        val text = "Result : $textReceived"
-        textEditable.text = text
-
+        binding.edtResult.setText(textReceived)
 
     }
 }
