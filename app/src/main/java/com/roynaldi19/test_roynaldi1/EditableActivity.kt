@@ -2,7 +2,6 @@ package com.roynaldi19.test_roynaldi1
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.roynaldi19.test_roynaldi1.databinding.ActivityEditableBinding
 
