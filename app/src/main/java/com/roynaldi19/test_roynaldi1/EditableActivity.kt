@@ -19,7 +19,7 @@ class EditableActivity : AppCompatActivity() {
         val textEditable: TextView = findViewById(R.id.edt_result)
 
         val textReceived = intent.getStringExtra(EXTRA_TEXT)
-        Log.i(TAG, "hasilClip $clip")
+        Log.i(TAG, "hasilCliponEditable $textReceived")
 
         val text = "Result : $textReceived"
         textEditable.text = text
