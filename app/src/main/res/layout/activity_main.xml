@@ -24,24 +24,24 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btn_takePicture"
+        android:id="@+id/btn_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/send_to_database"
+        android:text="@string/edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_Send"
+        app:layout_constraintStart_toEndOf="@+id/btn_takePicture"
         app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
     <Button
-        android:id="@+id/btn_Send"
+        android:id="@+id/btn_takePicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/take_a_picture"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_takePicture"
+        app:layout_constraintEnd_toStartOf="@+id/btn_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView" />

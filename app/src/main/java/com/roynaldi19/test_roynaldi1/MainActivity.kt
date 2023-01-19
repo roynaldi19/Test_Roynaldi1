@@ -1,11 +1,15 @@
 package com.roynaldi19.test_roynaldi1
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -14,6 +18,8 @@ import com.google.android.gms.vision.text.TextRecognizer
 import com.roynaldi19.test_roynaldi1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MyActivity"
 
     private lateinit var binding: ActivityMainBinding
     var IMAGE_URI: Uri? = null
@@ -29,7 +35,8 @@ class MainActivity : AppCompatActivity() {
                 .start()
         }
 
-        binding.btnSend.setOnClickListener {
+        binding.btnEdit.setOnClickListener {
+            copyToClipBoard(binding.tvResult.text.toString())
 
         }
     }
@@ -66,6 +73,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this@MainActivity, "Failed load Text", Toast.LENGTH_SHORT).show()
         }
+    }
 
+    private fun copyToClipBoard(resultText: String) {
+        val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("copied Text", resultText)
+        clipBoard.setPrimaryClip(clip)
+        val intent = Intent(this@MainActivity, EditableActivity::class.java)
+        Log.i(TAG, "hasilClip $clip")
+        intent.putExtra(EditableActivity.EXTRA_TEXT, clip)
+        startActivity(intent)
     }
 }
