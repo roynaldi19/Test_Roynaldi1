@@ -80,8 +80,8 @@ class MainActivity : AppCompatActivity() {
         val clip = ClipData.newPlainText("copied Text", resultText)
         clipBoard.setPrimaryClip(clip)
         val intent = Intent(this@MainActivity, EditableActivity::class.java)
-        Log.i(TAG, "hasilClip $clip")
-        intent.putExtra(EditableActivity.EXTRA_TEXT, clip)
+        Log.i(TAG, "hasilClip $resultText")
+        intent.putExtra(EditableActivity.EXTRA_TEXT, resultText)
         startActivity(intent)
     }
 }
