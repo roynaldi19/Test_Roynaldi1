@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnEdit.setOnClickListener {
-            copyToClipBoard(binding.tvResult.text.toString())
+            copyToSecondActivity(binding.tvResult.text.toString())
 
         }
     }
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun copyToClipBoard(resultText: String) {
+    private fun copyToSecondActivity(resultText: String) {
         val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("copied Text", resultText)
         clipBoard.setPrimaryClip(clip)
