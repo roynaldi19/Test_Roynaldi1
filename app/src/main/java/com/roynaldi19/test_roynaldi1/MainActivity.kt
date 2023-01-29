@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     var IMAGE_URI: Uri? = null
     var bitmap: Bitmap? = null
+
+    companion object{
+        const val TAG = "MAinActivity"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -62,10 +66,11 @@ class MainActivity : AppCompatActivity() {
             val stringBuilder = StringBuilder()
             for (i in 0 until textBlockSparseArray.size()){
                 val textBlock = textBlockSparseArray.valueAt(i)
+                //Log.i(TAG, textBlock.toString())
                 stringBuilder.append(textBlock.value)
                 stringBuilder.append("\n")
             }
-            binding.tvResult.setText(stringBuilder.toString())
+            binding.tvResult.text = stringBuilder.toString()
 
 
         } else {
@@ -74,9 +79,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun copyToSecondActivity(resultText: String) {
-        val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("copied Text", resultText)
-        clipBoard.setPrimaryClip(clip)
+        //mengcopy ke app lain
+//        val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+//        val clip = ClipData.newPlainText("copied Text", resultText)
+//        clipBoard.setPrimaryClip(clip)
         val intent = Intent(this@MainActivity, EditableActivity::class.java)
         intent.putExtra(EditableActivity.EXTRA_TEXT, resultText)
         startActivity(intent)
